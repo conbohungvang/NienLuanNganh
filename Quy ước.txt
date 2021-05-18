@@ -1,0 +1,26 @@
+Các loại tài khoản:
+
+QTV
+NV
+KTV
+
+----------
+
+Các loại yêu cầu:
+
+"TK01": SELECT FROM 'tai_khoan';
+"TK02": INSERT INTO 'tai_khoan';
+"TK03": UPDATE 'tai_khoan';
+"TK04": UPDATE 'tai_khoan' SET 'trang_thai';
+"TK05": DELETE FROM 'tai_khoan';
+    
+"TB01": SELECT FROM 'thiet_bi';
+"TB02": INSERT INTO 'thiet_bi';
+"TB03": UPDATE 'thiet_bi';
+"TB04": UPDATE 'thiet_bi' SET 'trang_thai';
+"TB05": DELETE FROM 'thiet_bi';
+    
+"BC01": SELECT FROM 'bao_cao';
+"BC02": INSERT INTO 'bao_cao';
+"BC03": UPDATE 'bao_cao'
+"BC04": DELETE FROM 'bao_cao';

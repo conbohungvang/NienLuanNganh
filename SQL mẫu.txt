@@ -1,0 +1,43 @@
+USE QuanLyBanHang;
+DROP DATABASE co_so_du_lieu;
+CREATE DATABASE co_so_du_lieu;
+USE co_so_du_lieu;
+
+CREATE TABLE tai_khoan (
+	id_tai_khoan int IDENTITY(1,1) PRIMARY KEY,
+	ten_nguoi_dung nvarchar(256) NOT NULL UNIQUE,
+	mat_khau nvarchar(256) NOT NULL,
+	loai_tai_khoan nvarchar(32) NOT NULL,
+	trang_thai nvarchar(32),
+);
+
+CREATE TABLE thiet_bi (
+	id_thiet_bi int IDENTITY(1,1) PRIMARY KEY,
+	ten_thiet_bi nvarchar(128),
+	vi_tri nvarchar(128),
+	tinh_trang nvarchar(64),
+);
+
+CREATE TABLE bao_cao (
+	id_bao_cao int IDENTITY(1,1) PRIMARY KEY,
+	nguoi_bao_cao int FOREIGN KEY REFERENCES tai_khoan(id_tai_khoan),
+	thiet_bi int FOREIGN KEY REFERENCES thiet_bi(id_thiet_bi),
+	loai_su_co nvarchar(64),
+	mo_ta nvarchar(256),
+	thoi_gian smalldatetime,
+	ky_thuat_vien int FOREIGN KEY REFERENCES tai_khoan(id_tai_khoan)
+);
+
+INSERT INTO tai_khoan(ten_nguoi_dung, mat_khau, loai_tai_khoan, trang_thai)
+	VALUES ('admin', 'password', 'QTV', '');
+INSERT INTO tai_khoan(ten_nguoi_dung, mat_khau, loai_tai_khoan, trang_thai)
+	VALUES ('staff', 'password', 'NV', '');
+INSERT INTO tai_khoan(ten_nguoi_dung, mat_khau, loai_tai_khoan, trang_thai)
+	VALUES ('technician1', 'password', 'KTV', 'available');
+INSERT INTO tai_khoan(ten_nguoi_dung, mat_khau, loai_tai_khoan, trang_thai)
+	VALUES ('technician2', 'password', 'KTV', 'unavailable');
+
+INSERT INTO thiet_bi(ten_thiet_bi, vi_tri, tinh_trang)
+	VALUES ('device1', 'place1', 'normal');
+INSERT INTO thiet_bi(ten_thiet_bi, vi_tri, tinh_trang)
+	VALUES ('device1', 'place1', 'not working');
